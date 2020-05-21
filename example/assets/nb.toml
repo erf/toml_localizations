@@ -1,10 +1,14 @@
-str1 = "hei \\"
-str2 = 'hei \\"'
+str1 = "hei! \\"
+
+str2 = 'hei! \\"'
+
 str3 = """
 hei \
 du \
 """
+
 str4 = '''hei'''
+
 str5 = '''
 hei \
 du \

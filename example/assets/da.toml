@@ -1,10 +1,14 @@
 str1 = "hej \\"
+
 str2 = 'hej \\"'
+
 str3 = """
 hej \
 du \
 """
+
 str4 = '''hej'''
+
 str5 = '''
 hej \
 du \

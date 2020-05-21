@@ -1,10 +1,14 @@
 str1 = "hi \\"
+
 str2 = 'hi \\"'
+
 str3 = """
 hi \
 you \
 """
+
 str4 = '''hi'''
+
 str5 = '''
 hi \
 you \

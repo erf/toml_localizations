@@ -28,15 +28,17 @@ flutter:
 ##### Example TOML file
 
 ```yaml
-str1 = "The quick brown fox jumps over the lazy dog."
-winpath  = 'C:\Users\nodejs\templates'
-regex2 = '''I [dw]on't need \d{2} apples'''
-str2 = """\
+str = "The quick brown fox jumps over the lazy dog."
+
+literal_str = 'C:\Users\nodejs\templates'
+
+multiline_str = """\
 The quick brown \
 fox jumps over \
 the lazy dog.\
 """
-str3  = '''
+
+literal_multiline_str = '''
 The first newline is
 trimmed in raw strings.
    All other whitespace
