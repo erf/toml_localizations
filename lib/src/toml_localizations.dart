@@ -57,11 +57,13 @@ class TomlLocalizations {
       Localizations.of<TomlLocalizations>(context, TomlLocalizations);
 
   // helper for getting supported language codes from YamlLocalizationsDelegate
-  bool isSupported(Locale locale) => supportedLanguageCodes.contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      supportedLanguageCodes.contains(locale.languageCode);
 }
 
 /// [TomlLocalizationsDelegate] add this to `MaterialApp.localizationsDelegates`
-class TomlLocalizationsDelegate extends LocalizationsDelegate<TomlLocalizations> {
+class TomlLocalizationsDelegate
+    extends LocalizationsDelegate<TomlLocalizations> {
   final TomlLocalizations localization;
 
   const TomlLocalizationsDelegate(this.localization);
