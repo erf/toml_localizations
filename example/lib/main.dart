@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('yaml_localizations'),
+        title: Text('toml_localizations'),
       ),
       body: Center(
         child: Column(

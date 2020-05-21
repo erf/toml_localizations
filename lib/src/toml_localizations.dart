@@ -18,7 +18,7 @@ class TomlLocalizations {
   /// language code of current locale, set in [load] method
   String _languageCode;
 
-  /// initialize with asset path to yaml files and a list of supported language codes
+  /// initialize with asset path to Toml files and a list of supported language codes
   TomlLocalizations({
     this.assetPath,
     this.supportedLanguageCodes,
