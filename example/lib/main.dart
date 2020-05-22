@@ -56,19 +56,18 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('toml_localizations'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(TomlLocalizations.of(context).string('str')),
-            SizedBox(height: 12),
-            Text('literal_str'.tr(context)),
-            SizedBox(height: 12),
-            Text('multiline_str'.tr(context)),
-            SizedBox(height: 12),
-            Text('literal_multiline_str'.tr(context)),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(TomlLocalizations.of(context).string('str')),
+          SizedBox(height: 12),
+          Text('literal_str'.tr(context)),
+          SizedBox(height: 12),
+          Text('multiline_str'.tr(context)),
+          SizedBox(height: 12),
+          Text('literal_multiline_str'.tr(context)),
+        ],
       ),
     );
   }
