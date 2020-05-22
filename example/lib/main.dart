@@ -3,6 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:toml_localizations/toml_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+extension LocalizedString on String {
+  String tr(BuildContext context) => TomlLocalizations.of(context).string(this);
+}
+
 void main() {
   runApp(MyApp());
 }
@@ -56,16 +60,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(TomlLocalizations.of(context).string('str1')),
+            Text(TomlLocalizations.of(context).string('str')),
             SizedBox(height: 12),
-            Text(TomlLocalizations.of(context).string('str2')),
+            Text('literal_str'.tr(context)),
             SizedBox(height: 12),
-            Text(TomlLocalizations.of(context).string('str3')),
+            Text('multiline_str'.tr(context)),
             SizedBox(height: 12),
-            Text(TomlLocalizations.of(context).string('str4')),
-            SizedBox(height: 12),
-            Text(TomlLocalizations.of(context).string('str5')),
-            SizedBox(height: 12),
+            Text('literal_multiline_str'.tr(context)),
           ],
         ),
       ),

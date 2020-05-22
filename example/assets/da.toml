@@ -1,15 +1,16 @@
-str1 = "hej \\"
+str = "Den hurtige brune ræv springer over den doven hund."
 
-str2 = 'hej \\"'
+literal_str = 'C:\Users\nodejs\templates'
 
-str3 = """
-hej \
-du \
+multiline_str = """\
+Den hurtige brune \
+ræv hopper over \
+den doble hund. \
 """
 
-str4 = '''hej'''
-
-str5 = '''
-hej \
-du \
+literal_multiline_str = '''
+Den første nye linje er
+trimmet i rå strenge.
+    Al anden hvidafstand
+    er bevaret.
 '''
