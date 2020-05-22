@@ -159,12 +159,10 @@ packages:
   toml:
     dependency: "direct main"
     description:
-      path: "."
-      ref: dep-conflict
-      resolved-ref: e5834ae19773d30069458c9b0ebae74574e47bcf
-      url: "https://github.com/erf/toml.dart.git"
-    source: git
-    version: "0.5.1"
+      name: toml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0"
   typed_data:
     dependency: transitive
     description:

@@ -10,10 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  toml:
-    git: 
-      url: https://github.com/erf/toml.dart.git
-      ref: dep-conflict
+  toml: ^0.6.0
 
 dev_dependencies:
   flutter_test:
