@@ -2,6 +2,10 @@
 
 A minimal [TOML](https://github.com/toml-lang/toml) localization package for Flutter.
 
+## Rationale
+
+TOML is a minimal, easy to read, configuration file format which allows you represent rich strings as key/value pairs. That is, as simple, literal and multiline strings, using single and double quotes. I think TOML is the best way to represent a set of multiline and complex strings in your app. Compared to [YAML](https://yaml.org/), strings are not indented, which is a huge advantage when working with text.
+
 ## Usage
 
 See [example](example).
