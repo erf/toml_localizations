@@ -1,6 +1,6 @@
-## [0.1.0+2] - 23 may 2020
+## [0.1.0+3] - 23 may 2020
 
-- added rationale to README
+- update README
 
 ## [0.1.0] - 22 may 2020
 
