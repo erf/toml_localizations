@@ -6,7 +6,7 @@ A minimal [TOML](https://github.com/toml-lang/toml) localization package for Flu
 
 TOML is a minimal, easy to read, configuration file format, which allows you to represent [strings](https://github.com/toml-lang/toml#user-content-string) as key/value pairs in several ways. That is, as basic, multi-line basic, literal and multi-line literal strings. I believe TOML has the best format to represent a set of long, multiline and complex strings. Compared to [YAML](https://yaml.org/), strings are not indented, which is an advantage when working with text. 
 
-For simple strings i recommend [csv_localizations](https://github.com/erf/csv_localizations), to support all languages in a single document.
+For simple strings consider [csv_localizations](https://github.com/erf/csv_localizations), to support all languages in a single document (you can use both).
 
 ## Usage
 
