@@ -2,11 +2,9 @@
 
 A minimal [TOML](https://github.com/toml-lang/toml) localization package for Flutter.
 
-## Why
-
 TOML is a minimal, easy to read, configuration file format, which allows you to represent [strings](https://github.com/toml-lang/toml#user-content-string) as key/value pairs. That is, as basic, literal or multi-line strings. I believe TOML has the best format to represent a set of strings. Compared to [YAML](https://yaml.org/), strings does not have to be indented, which is an advantage when working with text. 
 
-For simpler strings consider [csv_localizations](https://github.com/erf/csv_localizations), and support multiple languages in a single document. Or use both :)
+Consider [csv_localizations](https://github.com/erf/csv_localizations) if you want to support multiple languages in a single file. 
 
 ## Usage
 
