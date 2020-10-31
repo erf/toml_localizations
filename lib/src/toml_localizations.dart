@@ -20,8 +20,8 @@ class TomlLocalizations {
 
   /// initialize with asset path to Toml files and a list of supported language codes
   TomlLocalizations({
-    this.assetPath,
-    this.supportedLanguageCodes,
+    @required this.assetPath,
+    @required this.supportedLanguageCodes,
   });
 
   /// first time we call load, we read the csv file and initialize translations
