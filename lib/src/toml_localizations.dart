@@ -34,7 +34,7 @@ class TomlLocalizations {
     }
     final String path = '$assetPath/$_languageCode.toml';
     final String text = await rootBundle.loadString(path);
-    final Map<String, dynamic> toml = _tomlParser.parse(text.trim()).value;
+    final Map<String, dynamic> toml = _tomlParser.parse(text).value;
     _localizedValues[_languageCode] = toml;
     return this;
   }
