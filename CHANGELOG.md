@@ -1,3 +1,6 @@
+## [0.2.1] - 31 october 2020
+- don't trim
+
 ## [0.2.0] - 31 october 2020
 - add @required to constructor parameters
 - add LICENSE
