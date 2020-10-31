@@ -1,5 +1,5 @@
 name: toml_localizations
-description: A minimal TOML localization package for Flutter built on LocalizationsDelegate.
+description: TOML localization built on LocalizationsDelegate.
 version: 0.1.0+5
 homepage: https://github.com/erf/toml_localizations
 
