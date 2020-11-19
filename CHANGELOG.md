@@ -1,3 +1,6 @@
+## [0.2.2] - 19 november 2020
+- update toml to 0.6.1
+
 ## [0.2.1] - 31 october 2020
 - don't trim
 
