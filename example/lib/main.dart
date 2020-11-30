@@ -22,8 +22,10 @@ class MyApp extends StatelessWidget {
         TomlLocalizationsDelegate('assets'),
       ],
       supportedLocales: [
-        Locale('en'),
         Locale('nb'),
+        Locale('en', 'GB'),
+        Locale('en', 'US'),
+        Locale('en'),
       ],
       theme: ThemeData(
         primarySwatch: Colors.blue,
