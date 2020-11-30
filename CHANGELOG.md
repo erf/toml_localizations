@@ -1,3 +1,6 @@
+## [0.3.0] - 30 november 2020
+- remove supportedLanguageCodes and simplify constructor
+
 ## [0.2.2] - 19 november 2020
 - update toml to 0.6.1
 

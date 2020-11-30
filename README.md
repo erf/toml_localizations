@@ -60,12 +60,7 @@ Add `TomlLocalizationsDelegate` to `MaterialApp` and set `supportedLocales` usin
 MaterialApp(
   localizationsDelegates: [
     ... // global delegates
-    TomlLocalizationsDelegate(
-      TomlLocalizations(
-        assetPath: 'toml_translations',
-        supportedLanguageCodes: [ 'en', 'nb', ],
-      ),
-    ),
+    TomlLocalizationsDelegate('assets/toml_translations')
   ],
   supportedLocales: [ Locale('en'), Locale('nb'), ],
 }
