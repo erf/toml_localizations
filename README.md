@@ -29,6 +29,14 @@ flutter:
     - {path}/{languageCode}.toml
 ```
 
+We also support a combination of language and country code
+
+```yaml
+flutter:
+  assets:
+    - {path}/{languageCode-countryCode}.toml
+```
+
 ##### Example TOML file
 
 ```yaml
@@ -54,7 +62,7 @@ trimmed in raw strings.
 
 ### MaterialApp
 
-Add `TomlLocalizationsDelegate` to `MaterialApp` and set `supportedLocales` using language codes.
+Add `TomlLocalizationsDelegate` to `MaterialApp` and set `supportedLocales` using language/country codes.
 
 ```
 MaterialApp(
@@ -62,7 +70,12 @@ MaterialApp(
     ... // global delegates
     TomlLocalizationsDelegate('assets/toml_translations')
   ],
-  supportedLocales: [ Locale('en'), Locale('nb'), ],
+  supportedLocales: [
+    Locale('en', 'GB'),
+    Locale('en', 'US'),
+    Locale('en'),
+    Locale('nb'),
+  ],
 }
 
 ```
@@ -94,6 +107,8 @@ Example:
 <key>CFBundleLocalizations</key>
 <array>
 	<string>en</string>
+	<string>en-GB</string>
+	<string>en-US</string>
 	<string>nb</string>
 </array>
 ```
