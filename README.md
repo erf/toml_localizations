@@ -37,6 +37,12 @@ flutter:
     - {path}/{languageCode-countryCode}.toml
 ```
 
+The TOML file name must match exactly the combination of language and country 
+code described in `supportedLocales`.
+
+That is `Locale('en', 'US')` must have a corresponding `assetPath/en-US.toml`
+file.
+
 ##### Example TOML file
 
 ```yaml
