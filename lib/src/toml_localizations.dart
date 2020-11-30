@@ -38,7 +38,6 @@ class TomlLocalizations {
     } else {
       _codeKey = '$languageCode';
     }
-    debugPrint(_codeKey);
 
     // in cache
     if (_translationMap.containsKey(_codeKey)) {
@@ -47,7 +46,6 @@ class TomlLocalizations {
 
     // try to load with with _codeKey
     // could be a combination of language / country code
-    debugPrint('load $_codeKey');
     final text = await loadAsset('$assetPath/$_codeKey.toml');
     if (text != null) {
       _translationMap[_codeKey] = _tomlParser.parse(text).value;
@@ -57,7 +55,6 @@ class TomlLocalizations {
     // if it was a combined key, try to load with only language code
     if (_codeKey != languageCode) {
       _codeKey = languageCode;
-      debugPrint('load $_codeKey');
       final text = await loadAsset('$assetPath/$_codeKey.toml');
       // asset file should always exist for a supportedLanguageCode
       assert(text != null);
