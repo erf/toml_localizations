@@ -19,15 +19,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
-        TomlLocalizationsDelegate(
-          TomlLocalizations(
-            assetPath: 'assets',
-            supportedLanguageCodes: [
-              'en',
-              'nb',
-            ],
-          ),
-        ),
+        TomlLocalizationsDelegate('assets'),
       ],
       supportedLocales: [
         Locale('en'),

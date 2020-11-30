@@ -7,44 +7,38 @@ class TomlLocalizations {
   final _tomlParser = TomlParser();
 
   /// map of translations per languageCode
-  final Map<String, Map> _localizedValues = {};
+  final Map<String, Map> _translationMap = {};
 
   /// path to Yaml translation asset
   final String assetPath;
-
-  /// supported language codes
-  final List<String> supportedLanguageCodes;
 
   /// language code of current locale, set in [load] method
   String _languageCode;
 
   /// initialize with asset path to Toml files and a list of supported language codes
-  TomlLocalizations({
-    @required this.assetPath,
-    @required this.supportedLanguageCodes,
-  });
+  TomlLocalizations(this.assetPath);
 
   /// first time we call load, we read the csv file and initialize translations
   /// next time we just return this
   /// called by [TomlLocalizationsDelegate]
   Future<TomlLocalizations> load(Locale locale) async {
     this._languageCode = locale.languageCode;
-    if (_localizedValues.containsKey(_languageCode)) {
+    if (_translationMap.containsKey(_languageCode)) {
       return this;
     }
     final String path = '$assetPath/$_languageCode.toml';
     final String text = await rootBundle.loadString(path);
     final Map<String, dynamic> toml = _tomlParser.parse(text).value;
-    _localizedValues[_languageCode] = toml;
+    _translationMap[_languageCode] = toml;
     return this;
   }
 
   /// get translation given a key
   String string(String key) {
     // find translation map given current locale
-    final bool containsLocale = _localizedValues.containsKey(_languageCode);
+    final bool containsLocale = _translationMap.containsKey(_languageCode);
     assert(containsLocale, 'Missing localization for code: $_languageCode');
-    final Map translations = _localizedValues[_languageCode];
+    final Map translations = _translationMap[_languageCode];
     // find translated string given translation key
     final bool containsKey = translations.containsKey(key);
     assert(containsKey, 'Missing localization for translation key: $key');
@@ -55,10 +49,6 @@ class TomlLocalizations {
   /// helper for getting [TomlLocalizations] object
   static TomlLocalizations of(BuildContext context) =>
       Localizations.of<TomlLocalizations>(context, TomlLocalizations);
-
-  // helper for getting supported language codes from YamlLocalizationsDelegate
-  bool isSupported(Locale locale) =>
-      supportedLanguageCodes.contains(locale.languageCode);
 }
 
 /// [TomlLocalizationsDelegate] add this to `MaterialApp.localizationsDelegates`
@@ -66,10 +56,12 @@ class TomlLocalizationsDelegate
     extends LocalizationsDelegate<TomlLocalizations> {
   final TomlLocalizations localization;
 
-  const TomlLocalizationsDelegate(this.localization);
+  TomlLocalizationsDelegate(String path)
+      : localization = TomlLocalizations(path);
 
+  /// we expect supportedLocales to have asset files
   @override
-  bool isSupported(Locale locale) => localization.isSupported(locale);
+  bool isSupported(Locale locale) => true;
 
   @override
   Future<TomlLocalizations> load(Locale locale) => localization.load(locale);
