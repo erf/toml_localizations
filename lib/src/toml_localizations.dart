@@ -1,11 +1,9 @@
-import 'package:toml/decoder.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:toml/toml.dart';
 
 /// store translations per languageCode from a Yaml file used by [TomlLocalizationsDelegate]
 class TomlLocalizations {
-  final _tomlParser = TomlParser();
-
   /// map of translations per language/country code
   final Map<String, Map> _translationMap = {};
 
@@ -48,7 +46,7 @@ class TomlLocalizations {
     // could be a combination of language / country code
     final text = await loadAsset('$assetPath/$_codeKey.toml');
     if (text != null) {
-      _translationMap[_codeKey] = _tomlParser.parse(text).value;
+      _translationMap[_codeKey] = TomlDocument.parse(text).toMap();
       return this;
     }
 
@@ -58,7 +56,7 @@ class TomlLocalizations {
       final text = await loadAsset('$assetPath/$_codeKey.toml');
       // asset file should always exist for a supportedLanguageCode
       assert(text != null);
-      _translationMap[_codeKey] = _tomlParser.parse(text).value;
+      _translationMap[_codeKey] = TomlDocument.parse(text).toMap();
     }
 
     assert(false, 'translation file not found for code \'$_codeKey\'');

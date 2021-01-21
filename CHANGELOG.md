@@ -1,3 +1,6 @@
+## [0.4.0] - 21 jan 2021
+- update Toml to ^0.7.0 and fix breaking changes
+
 ## [0.3.0+1] - 15 dec 2020
 - improve description (and pub convention score)
 
