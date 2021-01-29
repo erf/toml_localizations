@@ -1,3 +1,6 @@
+## [0.5.0] - 21 jan 2021
+- update toml to ^0.8.0 which uses the TOML 0.5.0 spec
+
 ## [0.4.0] - 21 jan 2021
 - update Toml to ^0.7.0 and fix breaking changes
 
