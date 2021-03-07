@@ -14,13 +14,13 @@ class TomlLocalizations {
   final AssetBundle assetBundle;
 
   /// a hash key of language / country code used for [_translationsMap]
-  String _codeKey;
+  late String _codeKey;
 
   /// initialize with asset path to Toml files and a list of supported language codes
   TomlLocalizations(this.assetPath, [assetBundle])
       : this.assetBundle = assetBundle ?? rootBundle;
 
-  Future<String> loadAsset(path) async {
+  Future<String?> loadAsset(path) async {
     try {
       return await assetBundle.loadString(path);
     } catch (e) {
@@ -34,7 +34,6 @@ class TomlLocalizations {
     final languageCode = locale.languageCode;
     final countryCode = locale.countryCode;
 
-    assert(languageCode != null);
     assert(languageCode.isNotEmpty);
 
     if (countryCode != null && countryCode.isNotEmpty) {
@@ -61,8 +60,9 @@ class TomlLocalizations {
       _codeKey = languageCode;
       final text = await loadAsset('$assetPath/$_codeKey.toml');
       // asset file should always exist for a supportedLanguageCode
-      assert(text != null);
-      _translationMap[_codeKey] = TomlDocument.parse(text).toMap();
+      if (text != null) {
+        _translationMap[_codeKey] = TomlDocument.parse(text).toMap();
+      }
     }
 
     assert(false, 'translation file not found for code \'$_codeKey\'');
@@ -74,7 +74,7 @@ class TomlLocalizations {
   String string(String key) {
     final containsLocale = _translationMap.containsKey(_codeKey);
     assert(containsLocale, 'Missing localization for code: $_codeKey');
-    final translations = _translationMap[_codeKey];
+    final translations = _translationMap[_codeKey]!;
     final containsKey = translations.containsKey(key);
     assert(containsKey, 'Missing localization for translation key: $key');
     final translatedValue = translations[key];
@@ -82,7 +82,7 @@ class TomlLocalizations {
   }
 
   /// helper for getting [TomlLocalizations] object
-  static TomlLocalizations of(BuildContext context) =>
+  static TomlLocalizations? of(BuildContext context) =>
       Localizations.of<TomlLocalizations>(context, TomlLocalizations);
 }
 
@@ -91,7 +91,7 @@ class TomlLocalizationsDelegate
     extends LocalizationsDelegate<TomlLocalizations> {
   final TomlLocalizations localization;
 
-  TomlLocalizationsDelegate(String path, [AssetBundle assetBundle])
+  TomlLocalizationsDelegate(String path, [AssetBundle? assetBundle])
       : this.localization = TomlLocalizations(path, assetBundle);
 
   /// we expect supportedLocales to have asset files

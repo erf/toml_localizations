@@ -1,16 +1,16 @@
 name: toml_localizations
 description: A minimal TOML localization package built on LocalizationsDelegate.
-version: 0.6.0
+version: 1.0.0
 homepage: https://github.com/erf/toml_localizations
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  toml: ^0.9.0
+  toml: ^0.10.0
 
 dev_dependencies:
   flutter_test:

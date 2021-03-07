@@ -4,7 +4,8 @@ import 'package:toml_localizations/toml_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 extension LocalizedString on String {
-  String tr(BuildContext context) => TomlLocalizations.of(context).string(this);
+  String tr(BuildContext context) =>
+      TomlLocalizations.of(context)!.string(this);
 }
 
 void main() {
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(TomlLocalizations.of(context).string('str')),
+          Text('str'.tr(context)),
           SizedBox(height: 12),
           Text('literal_str'.tr(context)),
           SizedBox(height: 12),

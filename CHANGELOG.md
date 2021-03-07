@@ -1,3 +1,8 @@
+## [1.0.0] - 7 march 2021
+
+- null-safe version !
+- update toml to ^0.10.0 (null-safe version)
+
 ## [0.6.0] - 7 march 2021
 - update toml to ^0.9.0
 - added optional AssetBundle
