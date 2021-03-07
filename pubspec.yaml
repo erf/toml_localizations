@@ -1,6 +1,6 @@
 name: toml_localizations
 description: A minimal TOML localization package built on LocalizationsDelegate.
-version: 0.5.0
+version: 0.6.0
 homepage: https://github.com/erf/toml_localizations
 
 environment:

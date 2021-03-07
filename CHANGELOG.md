@@ -1,10 +1,15 @@
-## [0.5.0] - 21 jan 2021
-- update toml to ^0.8.0 which uses the TOML 0.5.0 spec
+## [0.6.0] - 7 march 2021
+- update toml to ^0.9.0
+- added optional AssetBundle
+- added widget tests
 
-## [0.4.0] - 21 jan 2021
+## [0.5.0] - 21 januar 2021
+- update toml to ^0.8.0 which uses the toml 0.5.0 spec
+
+## [0.4.0] - 21 januar 2021
 - update Toml to ^0.7.0 and fix breaking changes
 
-## [0.3.0+1] - 15 dec 2020
+## [0.3.0+1] - 15 december 2020
 - improve description (and pub convention score)
 
 ## [0.3.0] - 30 november 2020
