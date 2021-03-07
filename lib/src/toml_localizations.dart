@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart';
 import 'package:toml/toml.dart';
 
 /// store translations per languageCode from a Yaml file used by [TomlLocalizationsDelegate]
@@ -10,16 +10,22 @@ class TomlLocalizations {
   /// path to translation assets
   final String assetPath;
 
+  /// the asset bundle
+  final AssetBundle assetBundle;
+
   /// a hash key of language / country code used for [_translationsMap]
   String _codeKey;
 
   /// initialize with asset path to Toml files and a list of supported language codes
-  TomlLocalizations(this.assetPath);
+  TomlLocalizations(this.assetPath, [assetBundle])
+      : this.assetBundle = assetBundle ?? rootBundle;
 
   Future<String> loadAsset(path) async {
     try {
-      return await rootBundle.loadString(path);
-    } catch (e) {}
+      return await assetBundle.loadString(path);
+    } catch (e) {
+      print(e.toString());
+    }
     return null;
   }
 
@@ -85,8 +91,8 @@ class TomlLocalizationsDelegate
     extends LocalizationsDelegate<TomlLocalizations> {
   final TomlLocalizations localization;
 
-  TomlLocalizationsDelegate(String path)
-      : localization = TomlLocalizations(path);
+  TomlLocalizationsDelegate(String path, [AssetBundle assetBundle])
+      : this.localization = TomlLocalizations(path, assetBundle);
 
   /// we expect supportedLocales to have asset files
   @override
