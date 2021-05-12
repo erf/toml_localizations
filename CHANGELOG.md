@@ -1,5 +1,7 @@
-## [1.0.0] - 7 march 2021
+## [1.1.0] - 12 may 2021
+- update toml to ^0.11.0
 
+## [1.0.0] - 7 march 2021
 - null-safe version !
 - update toml to ^0.10.0 (null-safe version)
 
