@@ -1,3 +1,6 @@
+## [1.1.0+1] - 18 july 2021
+- README: simplify asset path instructions
+
 ## [1.1.0] - 12 may 2021
 - update toml to ^0.11.0
 

@@ -26,15 +26,7 @@ Add a TOML file per language you support in an asset `path` and describe it in y
 ```yaml
 flutter:
   assets:
-    - {path}/{languageCode}.toml
-```
-
-We also support a combination of language and country code
-
-```yaml
-flutter:
-  assets:
-    - {path}/{languageCode-countryCode}.toml
+    - assets/toml_translations
 ```
 
 The TOML file name must match exactly the combination of language and country 
