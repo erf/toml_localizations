@@ -4,8 +4,7 @@ import 'package:toml_localizations/toml_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 extension LocalizedString on String {
-  String tr(BuildContext context) =>
-      TomlLocalizations.of(context)!.string(this);
+  String tr(BuildContext context) => TomlLocalizations.of(context)!.value(this);
 }
 
 void main() {
@@ -45,6 +44,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final List<String> list =
+        TomlLocalizations.of(context)!.value('list').cast<String>();
     return Scaffold(
       appBar: AppBar(
         title: Text('toml_localizations'),
@@ -60,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Text('multiline_str'.tr(context)),
           SizedBox(height: 12),
           Text('literal_multiline_str'.tr(context)),
+          for (final str in list) Text(str)
         ],
       ),
     );

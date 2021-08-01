@@ -1,10 +1,17 @@
 # toml_localizations
 
-A minimal [TOML](https://github.com/toml-lang/toml) localization package for Flutter.
+A minimal [TOML](https://github.com/toml-lang/toml) localization package for
+Flutter.
 
-TOML is a minimal, easy to read, configuration file format, which allows you to represent [strings](https://github.com/toml-lang/toml#user-content-string) as key/value pairs. That is, as basic, literal or multi-line strings. I believe TOML has the best format to represent a set of strings. Compared to [YAML](https://yaml.org/), strings does not have to be indented, which is an advantage when working with text. 
+TOML is a minimal, easy to read, configuration file format, which allows you to
+represent [strings](https://github.com/toml-lang/toml#user-content-string) as
+key/value pairs. That is, as basic, literal or multi-line strings. I believe
+TOML has the best format to represent a set of strings. Compared to
+[YAML](https://yaml.org/), strings does not have to be indented, which is an
+advantage when working with text.
 
-Consider [csv_localizations](https://github.com/erf/csv_localizations) if you want to support multiple languages in a single file. 
+Consider [csv_localizations](https://github.com/erf/csv_localizations) if you
+want to support multiple languages in a single file.
 
 ## Usage
 
@@ -21,7 +28,8 @@ dependencies:
 
 ### Add a TOML file per language
 
-Add a TOML file per language you support in an asset `path` and describe it in your `pubspec.yaml`
+Add a TOML file per language you support in an asset `path` and describe it in
+your `pubspec.yaml`
 
 ```yaml
 flutter:
@@ -29,7 +37,7 @@ flutter:
     - assets/toml_translations
 ```
 
-The TOML file name must match exactly the combination of language and country 
+The TOML file name must match exactly the combination of language and country
 code described in `supportedLocales`.
 
 That is `Locale('en', 'US')` must have a corresponding `assetPath/en-US.toml`
@@ -54,13 +62,17 @@ trimmed in raw strings.
    All other whitespace
    is preserved.
 '''
+
+list = [ 'one', 'two', 'three' ]
 ```
 
-> Tip: Toml supports several ways of expressing strings.  See Toml documentation for more info.
+> Tip: Toml supports several ways of expressing strings. See Toml documentation
+> for more info.
 
 ### MaterialApp
 
-Add `TomlLocalizationsDelegate` to `MaterialApp` and set `supportedLocales` using language/country codes.
+Add `TomlLocalizationsDelegate` to `MaterialApp` and set `supportedLocales`
+using language/country codes.
 
 ```
 MaterialApp(
@@ -75,28 +87,28 @@ MaterialApp(
     Locale('nb'),
   ],
 }
-
 ```
 
 ### API
 
-Translate strings using
+Translate strings or other types using
 
 ```dart
-TomlLocalizations.of(context).string('Hi')
+TomlLocalizations.of(context)!.value('Hi')
 ```
 
-We keep the API simple, but you can easily add an extension method to `String` like this:
+We keep the API simple, but you can easily add an extension method to `String`
+like this:
 
 ```dart
 extension LocalizedString on String {
-  String tr(BuildContext context) => TomlLocalizations.of(context).string(this);
+  String tr(BuildContext context) => TomlLocalizations.of(context)!.value(this);
 }
 ```
 
 ### Note on **iOS**
 
-Add supported languages to `ios/Runner/Info.plist` as described 
+Add supported languages to `ios/Runner/Info.plist` as described
 [here](https://flutter.dev/docs/development/accessibility-and-localization/internationalization#specifying-supportedlocales).
 
 Example:

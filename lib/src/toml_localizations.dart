@@ -71,7 +71,7 @@ class TomlLocalizations {
   }
 
   /// get translation given a key
-  String string(String key) {
+  dynamic value(String key) {
     final containsLocale = _translationMap.containsKey(_codeKey);
     assert(containsLocale, 'Missing localization for code: $_codeKey');
     final translations = _translationMap[_codeKey]!;

@@ -14,3 +14,5 @@ trimmed in raw strings.
    All other whitespace
    is preserved.
 '''
+
+list = ["one", "two", "three"]

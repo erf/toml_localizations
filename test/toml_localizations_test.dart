@@ -57,7 +57,7 @@ Widget buildTestWidgetWithLocale(Locale locale) {
     home: Scaffold(
       body: Builder(
         builder: (context) =>
-            Text(TomlLocalizations.of(context)?.string('str') ?? ''),
+            Text(TomlLocalizations.of(context)?.value('str') ?? ''),
       ),
     ),
   );

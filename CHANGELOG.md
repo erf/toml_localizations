@@ -1,3 +1,6 @@
+## [2.0.0] - 1 aug 2021
+- rename API string -> value and return a dynamic type
+
 ## [1.1.0+1] - 18 july 2021
 - README: simplify asset path instructions
 
