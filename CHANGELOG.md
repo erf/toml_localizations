@@ -1,3 +1,6 @@
+## [2.1.0] - 7 sep 2021
+- update TOML package to 0.12.0
+
 ## [2.0.0] - 1 aug 2021
 - rename API string -> value and return a dynamic type
 
