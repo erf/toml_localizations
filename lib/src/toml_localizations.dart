@@ -5,7 +5,7 @@ import 'package:toml/toml.dart';
 /// store translations per languageCode from a Yaml file used by [TomlLocalizationsDelegate]
 class TomlLocalizations {
   /// map of translations per language/country code
-  final Map<String, Map> _translationMap = {};
+  final Map<String, Map> _translations = {};
 
   /// path to translation assets
   final String assetPath;
@@ -43,7 +43,7 @@ class TomlLocalizations {
     }
 
     // in cache
-    if (_translationMap.containsKey(_codeKey)) {
+    if (_translations.containsKey(_codeKey)) {
       return this;
     }
 
@@ -51,7 +51,7 @@ class TomlLocalizations {
     // could be a combination of language / country code
     final text = await loadAsset('$assetPath/$_codeKey.toml');
     if (text != null) {
-      _translationMap[_codeKey] = TomlDocument.parse(text).toMap();
+      _translations[_codeKey] = TomlDocument.parse(text).toMap();
       return this;
     }
 
@@ -61,7 +61,7 @@ class TomlLocalizations {
       final text = await loadAsset('$assetPath/$_codeKey.toml');
       // asset file should always exist for a supportedLanguageCode
       if (text != null) {
-        _translationMap[_codeKey] = TomlDocument.parse(text).toMap();
+        _translations[_codeKey] = TomlDocument.parse(text).toMap();
       }
     }
 
@@ -72,9 +72,9 @@ class TomlLocalizations {
 
   /// get translation given a key
   dynamic value(String key) {
-    final containsLocale = _translationMap.containsKey(_codeKey);
+    final containsLocale = _translations.containsKey(_codeKey);
     assert(containsLocale, 'Missing localization for code: $_codeKey');
-    final translations = _translationMap[_codeKey]!;
+    final translations = _translations[_codeKey]!;
     final containsKey = translations.containsKey(key);
     assert(containsKey, 'Missing localization for translation key: $key');
     final translatedValue = translations[key];
