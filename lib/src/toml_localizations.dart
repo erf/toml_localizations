@@ -18,13 +18,13 @@ class TomlLocalizations {
 
   /// initialize with asset path to Toml files and a list of supported language codes
   TomlLocalizations(this.assetPath, [assetBundle])
-      : this.assetBundle = assetBundle ?? rootBundle;
+      : assetBundle = assetBundle ?? rootBundle;
 
   Future<String?> loadAsset(path) async {
     try {
       return await assetBundle.loadString(path);
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
     }
     return null;
   }
@@ -39,7 +39,7 @@ class TomlLocalizations {
     if (countryCode != null && countryCode.isNotEmpty) {
       _codeKey = '$languageCode-$countryCode';
     } else {
-      _codeKey = '$languageCode';
+      _codeKey = languageCode;
     }
 
     // in cache
@@ -92,7 +92,7 @@ class TomlLocalizationsDelegate
   final TomlLocalizations localization;
 
   TomlLocalizationsDelegate(String path, [AssetBundle? assetBundle])
-      : this.localization = TomlLocalizations(path, assetBundle);
+      : localization = TomlLocalizations(path, assetBundle);
 
   /// we expect supportedLocales to have asset files
   @override
