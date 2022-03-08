@@ -1,3 +1,10 @@
+## [2.2.0] - 8 mar 2022
+- fix tests by adding Cupertino localization delegate
+- add linting
+- remove unnecessary 'this' and string interpolation
+- rename _translationMap -> _translations
+- add const to example
+
 ## [2.1.0] - 7 sep 2021
 - update TOML package to 0.12.0
 
