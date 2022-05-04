@@ -31,16 +31,7 @@ class TomlLocalizations {
 
   /// load and cache a toml file per language / country code
   Future<TomlLocalizations> load(Locale locale) async {
-    final languageCode = locale.languageCode;
-    final countryCode = locale.countryCode;
-
-    assert(languageCode.isNotEmpty);
-
-    if (countryCode != null && countryCode.isNotEmpty) {
-      _codeKey = '$languageCode-$countryCode';
-    } else {
-      _codeKey = languageCode;
-    }
+    _codeKey = locale.toLanguageTag();
 
     // in cache
     if (_translations.containsKey(_codeKey)) {
@@ -56,8 +47,8 @@ class TomlLocalizations {
     }
 
     // if it was a combined key, try to load with only language code
-    if (_codeKey != languageCode) {
-      _codeKey = languageCode;
+    if (_codeKey != locale.languageCode) {
+      _codeKey = locale.languageCode;
       final text = await loadAsset('$assetPath/$_codeKey.toml');
       // asset file should always exist for a supportedLanguageCode
       if (text != null) {
