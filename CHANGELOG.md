@@ -1,3 +1,8 @@
+## [2.3.0] - 5 may 2022
+
+- use Locale.toLanguageTag to build key
+- DOC improvements
+
 ## [2.2.0] - 8 mar 2022
 - fix tests by adding Cupertino localization delegate
 - add linting
