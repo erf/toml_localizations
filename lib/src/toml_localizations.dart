@@ -13,8 +13,8 @@ class TomlLocalizations {
   /// The asset bundle.
   final AssetBundle assetBundle;
 
-  /// A hash key of language / country code used for [_translationsMap].
-  late String _codeKey;
+  /// A language / country code key used for translations.
+  late String _langTag;
 
   /// Initialize with asset path to Toml files and a list of supported language codes.
   TomlLocalizations(this.assetPath, [assetBundle])
@@ -31,46 +31,38 @@ class TomlLocalizations {
 
   /// Load and cache a TOML file per language / country code.
   Future<TomlLocalizations> load(Locale locale) async {
-    _codeKey = locale.toLanguageTag();
+    _langTag = locale.toLanguageTag();
 
     // in cache
-    if (_translations.containsKey(_codeKey)) {
+    if (_translations.containsKey(_langTag)) {
       return this;
     }
 
     // try to load with with _codeKey
     // could be a combination of language / country code
-    final text = await loadAsset('$assetPath/$_codeKey.toml');
+    final text = await loadAsset('$assetPath/$_langTag.toml');
     if (text != null) {
-      _translations[_codeKey] = TomlDocument.parse(text).toMap();
+      _translations[_langTag] = TomlDocument.parse(text).toMap();
       return this;
     }
 
     // if it was a combined key, try to load with only language code
-    if (_codeKey != locale.languageCode) {
-      _codeKey = locale.languageCode;
-      final text = await loadAsset('$assetPath/$_codeKey.toml');
+    if (_langTag != locale.languageCode) {
+      _langTag = locale.languageCode;
+      final text = await loadAsset('$assetPath/$_langTag.toml');
       // asset file should always exist for a supportedLanguageCode
       if (text != null) {
-        _translations[_codeKey] = TomlDocument.parse(text).toMap();
+        _translations[_langTag] = TomlDocument.parse(text).toMap();
       }
     }
 
-    assert(false, 'translation file not found for code \'$_codeKey\'');
+    assert(false, 'translation file not found for code \'$_langTag\'');
 
     return this;
   }
 
-  /// Get translation given a key.
-  dynamic value(String key) {
-    final containsLocale = _translations.containsKey(_codeKey);
-    assert(containsLocale, 'Missing localization for code: $_codeKey');
-    final translations = _translations[_codeKey]!;
-    final containsKey = translations.containsKey(key);
-    assert(containsKey, 'Missing localization for translation key: $key');
-    final translatedValue = translations[key];
-    return translatedValue;
-  }
+  /// Get translation given a [key].
+  dynamic value(String key) => _translations[_langTag]![key];
 
   /// Helper for getting [TomlLocalizations] object.
   static TomlLocalizations? of(BuildContext context) =>
