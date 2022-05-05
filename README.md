@@ -39,7 +39,7 @@ file.
 
 ##### Example TOML file
 
-```yaml
+```toml
 str = "The quick brown fox jumps over the lazy dog."
 
 literal_str = 'C:\Users\nodejs\templates'
@@ -87,14 +87,14 @@ MaterialApp(
 
 Translate strings or other types using
 
-```dart
+```Dart
 TomlLocalizations.of(context)!.value('Hi')
 ```
 
 We keep the API simple, but you can easily add an extension method to `String`
 like this:
 
-```dart
+```Dart
 extension LocalizedString on String {
   String tr(BuildContext context) => TomlLocalizations.of(context)!.value(this);
 }

@@ -2,21 +2,21 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:toml/toml.dart';
 
-/// store translations per languageCode from a Yaml file used by [TomlLocalizationsDelegate]
+/// Store translations per languageCode from a TOML file used by [TomlLocalizationsDelegate].
 class TomlLocalizations {
-  /// map of translations per language/country code
+  /// Map of translations per language/country code.
   final Map<String, Map> _translations = {};
 
-  /// path to translation assets
+  /// Path to translation assets.
   final String assetPath;
 
-  /// the asset bundle
+  /// The asset bundle.
   final AssetBundle assetBundle;
 
-  /// a hash key of language / country code used for [_translationsMap]
+  /// A hash key of language / country code used for [_translationsMap].
   late String _codeKey;
 
-  /// initialize with asset path to Toml files and a list of supported language codes
+  /// Initialize with asset path to Toml files and a list of supported language codes.
   TomlLocalizations(this.assetPath, [assetBundle])
       : assetBundle = assetBundle ?? rootBundle;
 
@@ -29,7 +29,7 @@ class TomlLocalizations {
     return null;
   }
 
-  /// load and cache a toml file per language / country code
+  /// Load and cache a TOML file per language / country code.
   Future<TomlLocalizations> load(Locale locale) async {
     _codeKey = locale.toLanguageTag();
 
@@ -61,7 +61,7 @@ class TomlLocalizations {
     return this;
   }
 
-  /// get translation given a key
+  /// Get translation given a key.
   dynamic value(String key) {
     final containsLocale = _translations.containsKey(_codeKey);
     assert(containsLocale, 'Missing localization for code: $_codeKey');
@@ -72,7 +72,7 @@ class TomlLocalizations {
     return translatedValue;
   }
 
-  /// helper for getting [TomlLocalizations] object
+  /// Helper for getting [TomlLocalizations] object.
   static TomlLocalizations? of(BuildContext context) =>
       Localizations.of<TomlLocalizations>(context, TomlLocalizations);
 }
@@ -85,7 +85,7 @@ class TomlLocalizationsDelegate
   TomlLocalizationsDelegate(String path, [AssetBundle? assetBundle])
       : localization = TomlLocalizations(path, assetBundle);
 
-  /// we expect supportedLocales to have asset files
+  /// We expect supportedLocales to have asset files.
   @override
   bool isSupported(Locale locale) => true;
 
