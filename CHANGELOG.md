@@ -1,3 +1,8 @@
+## [2.4.0] - 31 july 2022
+
+- update toml package to 0.13.1
+- update lints package to 2.0.1
+
 ## [2.3.0] - 5 may 2022
 
 - use Locale.toLanguageTag to build key
