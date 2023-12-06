@@ -16,7 +16,7 @@ class TomlLocalizations {
   /// A language / country code key used for translations.
   late String _langTag;
 
-  /// Initialize with asset path to Toml files and a list of supported language codes.
+  /// Initialize with asset path to TOML files and a list of supported language codes.
   TomlLocalizations(this.assetPath, [assetBundle])
       : assetBundle = assetBundle ?? rootBundle;
 
