@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  toml: ^0.14.0
+  toml: ^0.15.0
 
 dev_dependencies:
   flutter_test:

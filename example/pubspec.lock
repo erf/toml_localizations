@@ -124,10 +124,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: cb3798bef7fc021ac45b308f4b51208a152792445cce0448c9a4ba5879dd8750
+      sha256: c15605cd28af66339f8eb6fbe0e541bfe2d1b72d5825efc6598f3e0a31b9ad27
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.0"
+    version: "6.0.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -185,17 +185,17 @@ packages:
     dependency: transitive
     description:
       name: toml
-      sha256: "69756bc12eccf279b72217a87310d217efc4b3752f722e890f672801f19ac485"
+      sha256: "9968de24e45b632bf1a654fe1ac7b6fe5261c349243df83fd262397799c45a2d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.1"
+    version: "0.15.0"
   toml_localizations:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "2.4.0"
+    version: "2.5.0"
   vector_math:
     dependency: transitive
     description:
@@ -213,4 +213,4 @@ packages:
     source: hosted
     version: "0.3.0"
 sdks:
-  dart: ">=3.2.0-194.0.dev <4.0.0"
+  dart: ">=3.2.0 <4.0.0"
