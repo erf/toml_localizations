@@ -1,3 +1,7 @@
+## [2.7.0] - 14 feb 2024
+- use named args for path and assetBundle
+- update README 
+
 ## [2.6.0] - 7 dec 2023
 - update toml -> 0.15.0
 
