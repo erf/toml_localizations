@@ -74,7 +74,7 @@ class TomlLocalizationsDelegate
     extends LocalizationsDelegate<TomlLocalizations> {
   final TomlLocalizations localization;
 
-  TomlLocalizationsDelegate(String path, [AssetBundle? assetBundle])
+  TomlLocalizationsDelegate({required String path, AssetBundle? assetBundle})
       : localization = TomlLocalizations(path, assetBundle);
 
   /// We expect supportedLocales to have asset files.

@@ -47,7 +47,7 @@ MaterialApp(
     GlobalWidgetsLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
     // toml localizations delegate
-    TomlLocalizationsDelegate('assets/toml_translations')
+    TomlLocalizationsDelegate(path: 'assets/toml_translations')
   ],
   supportedLocales: [
     Locale('en', 'GB'),

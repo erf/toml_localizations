@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: [
-        TomlLocalizationsDelegate('assets'),
         ...GlobalMaterialLocalizations.delegates,
+        TomlLocalizationsDelegate(path: 'assets'),
       ],
       supportedLocales: const [
         Locale('nb'),

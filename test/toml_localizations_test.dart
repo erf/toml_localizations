@@ -40,11 +40,9 @@ Widget buildTestWidgetWithLocale(Locale locale) {
   return MaterialApp(
     locale: locale,
     localizationsDelegates: [
-      TomlLocalizationsDelegate(
-        'assets/toml_translations',
-        TestAssetBundle(),
-      ),
       ...GlobalMaterialLocalizations.delegates,
+      TomlLocalizationsDelegate(
+          path: 'assets/toml_translations', assetBundle: TestAssetBundle()),
     ],
     supportedLocales: const [
       Locale('en'),
