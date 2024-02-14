@@ -9,8 +9,6 @@ other types) as key/value pairs.
 
 ## Install
 
-### Add depenencides
-
 Add `toml_localizations` and `flutter_localizations` as dependencies to your `pubspec.yaml`.
 
 ```yaml
