@@ -1,3 +1,6 @@
+## [2.7.0+1]
+- update README
+
 ## [2.7.0]
 - use named args for path and assetBundle
 - update README 
